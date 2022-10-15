@@ -45,4 +45,3 @@ class Furniture extends Product
         $dbconn->arrangeId();
     }
 }
-//check
