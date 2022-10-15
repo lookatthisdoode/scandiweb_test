@@ -1,22 +1,22 @@
 @font-face { font-family: Cabin-Regular; src: url('/fonts/Cabin-Regular.ttf'); }
- @font-face { font-family: Cabin-Bold; font-weight: bold; src: url('/fonts/Cabin-Bold.ttf');}
+@font-face { font-family: Cabin-Bold; font-weight: bold; src: url('/fonts/Cabin-Bold.ttf');}
 @font-face { font-family: Overpass-Regular; src: url('/fonts/Overpass-Regular.ttf'); }
 @font-face { font-family: Overpass-Medium; src: url('/fonts/Overpass-Medium.ttf'); }
- @font-face { font-family: Overpass-Bold; font-weight: bold; src: url('/fonts/Overpass-Bold.ttf');}
+@font-face { font-family: Overpass-Bold; font-weight: bold; src: url('/fonts/Overpass-Bold.ttf');}
 
 
 
 :root {
-            --first-color: rgb(180, 205, 230); /* light */
-            --second-color: rgb(245, 239, 230);  /* blue */
-            --third-color: rgb(98, 142, 144);    /* green */
-            --third-darker-color: rgb(55, 80, 82);    /* green darker*/
+    --first-color: rgb(180, 205, 230); /* light */
+    --second-color: rgb(245, 239, 230);  /* blue */
+    --third-color: rgb(98, 142, 144);    /* green */
+    --third-darker-color: rgb(55, 80, 82);    /* green darker*/
 
-            --fourth-color: rgb(60, 35, 23);   /* brown */
+    --fourth-color: rgb(60, 35, 23);   /* brown */
 }
 
 
-h1{
+h1 {
     font-family: Overpass-Bold;
     width:80%;
     margin:auto;
@@ -26,7 +26,7 @@ h1{
 }
 
 
-a{
+a {
     text-decoration:none;
     color:var(--second-color);
 }
@@ -50,8 +50,7 @@ nav {
     background-color: var(--third-color);
 }
 
-button{
-
+button {
     box-shadow: 5px 7px var(--second-color);
     background-color:var(--third-color);
     color:var(--second-color);
@@ -63,145 +62,135 @@ button{
     border: none;
     border-radius: 15px;
     text-align:center;
-
     text-decoration:none;
 }
 
 button:hover {
-  background-color:var(--third-darker-color);
+    background-color:var(--third-darker-color);
 }
+
 button:active {
     background-color:var(--second-color);
 }
 
-
-#howmanybutton:hover{
-animation: shake 0.2s cubic-bezier(.36,.07,.19,.97) both;
-transform: translate3d(0, 0, 0);
-backface-visibility: hidden;
-perspective: 1000px;
+#howmanybutton:hover {
+    animation: shake 0.2s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
-
-#containerProduct{
-  width: 80%;
-  margin: auto;
-  position: relative;
+#containerProduct {
+    width: 80%;
+    margin: auto;
+    position: relative;
 }
-
-
-
 
 .mydiv {
-  display: inline;
-  float: left;
+    display: inline;
+    float: left;
 
-  width: 20%;
-  height: 250px;
+    width: 20%;
+    height: 250px;
 
-  padding: 30px 20px 20px 30px;
-  margin: 0 50px 100px 0;
+    padding: 30px 20px 20px 30px;
+    margin: 0 50px 100px 0;
 
-  background-color: var(--second-color);
-  color:var(--third-color);
-  box-shadow: 15px 28px var(--third-color);
-  border-radius: 30px;
-	text-align: left;
-  font-size: 20px;
+    background-color: var(--second-color);
+    color:var(--third-color);
+    box-shadow: 15px 28px var(--third-color);
+    border-radius: 30px;
+    text-align: left;
+    font-size: 20px;
 }
 
 .delete-checkbox {
-  position:relative;
-  margin: 0 0 10px 0;
-  width:25px;
-  height:25px;
-  float: left;
-
+    position:relative;
+    margin: 0 0 10px 0;
+    width:25px;
+    height:25px;
+    float: left;
 }
 
 .delete-checkbox:checked {
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
 .deletetext {
-  color:var(--second-color);
-  padding: 4px 0 0 35px;
-  height: 25px;
-  text-align: left;
-  font-size: 10px;
+    color:var(--second-color);
+    padding: 4px 0 0 35px;
+    height: 25px;
+    text-align: left;
+    font-size: 10px;
 }
 
 .delete-checkbox:hover ~ .deletetext {
-  color: DARKRED;
+    color: DARKRED;
 }
-
-
-
 
 
 /* addproduct.php */
 
 
 .formBody {
-  width:80%;
-  margin:auto;
-  color:var(--third-color);
+    width:80%;
+    margin:auto;
+    color:var(--third-color);
 }
 
-.formBody input{
-  box-shadow: 3px 5px var(--third-color);
-  margin: 10px 0;
-  width: 30%;
-  height: 30px;
-  /* box-sizing: border-box; */
-  border: none;
-  border-radius: 5px;
-  font-size: 20px;
-  color:darkslategray;
-  background-color: var(--second-color);
-
+.formBody input {
+    box-shadow: 3px 5px var(--third-color);
+    margin: 10px 0;
+    width: 30%;
+    height: 30px;
+    /* box-sizing: border-box; */
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    color:darkslategray;
+    background-color: var(--second-color);
 }
 
 
-#error{
+#error {
     color:darkred;
     margin: 10px 0;
 }
 
 #product_form {
-  color:var(--third-color);
+    color:var(--third-color);
 }
 
 select {
-  box-shadow: 3px 5px var(--third-color);
-  color:var(--third-color);
-  font-size: 20px;
-  border-radius: 5px;
-  border: none;
-  padding: 5px 0px;
-  margin: 5px 0;
-  box-sizing: border-box;
+    box-shadow: 3px 5px var(--third-color);
+    color:var(--third-color);
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 0px;
+    margin: 5px 0;
+    box-sizing: border-box;
 }
 
 
 
 @keyframes shake {
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
 
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
 
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
 
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
 }
