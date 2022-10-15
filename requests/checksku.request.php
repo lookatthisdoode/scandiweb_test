@@ -11,4 +11,4 @@ $isexist = $data->skuExist($sku);
 echo $isexist;
 
 
-//yes thisis a little extra bc my formhandler is on js and i cba to rewrite it:)
+//yes this is little extra bc my formhandler is on js and i cba to rewrite it:)
