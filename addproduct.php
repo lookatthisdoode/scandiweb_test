@@ -43,6 +43,4 @@
             </form>
         </div>
     </body>
-
-    <!-- <script type="text/javascript" src="numbervalidation.js"></script> -->
 </html>
