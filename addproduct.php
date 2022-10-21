@@ -4,21 +4,19 @@
         <?php header('Content-type: text/html; charset=utf-8'); ?>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <script type="text/javascript" src="script.js"></script>
         <link rel="icon" href="icon.png">
-
         <title>Add Product</title>
     </head>
 
     <body>
-        <span id="title"><h1>Add Product</h1></span>
 
         <nav>
+            <div class="pagettl"><h1>Add Product</h1></div>
             <button id="Save" onclick="submitform()">Save</button>
-            <button id="goback"><a href="index.php">CANCEL</a></button>
-            <p class="divider"></p>
+            <button id="goback" onclick="location.href = 'index.php'">CANCEL</button>
         </nav>
 
+        <p class="divider"></p>
 
         <div class="formBody">
 
@@ -45,4 +43,5 @@
             </form>
         </div>
     </body>
+    <script type="text/javascript" src="script.js"></script>
 </html>

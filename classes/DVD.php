@@ -1,7 +1,7 @@
 <?php
 
-include_once 'abstract.product.class.php';
-include_once 'database.class.php';
+include_once 'Product.php';
+include_once 'Database.php';
 
 
 class DVD extends Product

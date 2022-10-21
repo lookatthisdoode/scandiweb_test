@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 
 <?php
-    include_once 'classes/database.class.php';
-    include_once 'classes/dvd.class.php';
-    include_once 'classes/furniture.class.php';
-    include_once 'classes/book.class.php';
+    include_once 'classes/Database.php';
+    include_once 'classes/DVD.php';
+    include_once 'classes/Furniture.php';
+    include_once 'classes/Book.php';
     header('Content-type: text/html; charset=utf-8');
 ?>
 
@@ -19,16 +19,19 @@
     </head>
 
     <body>
-        <span id="title"><h1>Product List</h1></span>
 
         <nav>
-            <button id="add"><a href="addproduct.php">ADD</a></button>
+            <div class="pagettl"><h1>Product List</h1></div>
+            <button id="add" onclick="location.href = 'addproduct.php'">ADD</button>
             <button  onclick="deletethem()">MASS DELETE</button>
-            <div class="divider"></div>
         </nav>
+        
+        <div class="divider"></div>
 
         <div id="containerProduct">
             <?php
+                session_start();
+
                 function makeDVD(array $x)
                 {
                     $newprod = new DVD($x['sku'], $x['name'], $x['price'], $x['size']);
@@ -53,10 +56,12 @@
 
 
 
-                if ($_POST) {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if (!$database->skuExist($_POST['sku'])) {
                         $map[$_POST['product_type']]($_POST)->toDB();
                     }
+
+                    header( "Location: {$_SERVER['PHP_SELF']}", true, 303);
                 }
 
                 $data = $database->getData();
@@ -66,7 +71,7 @@
 
                     echo "<div class='mydiv'" . $row['id'] . "'>";
                     echo "<input type='checkbox' id='checkbox" . $row['id'] . "' class='delete-checkbox'>";
-                    echo "<div class='deletetext'>Check to delete</div><br>";
+                    echo "<div class='deletetext'>Check to delete</div>";
 
                     $render->toHTML();
 

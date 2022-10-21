@@ -1,6 +1,6 @@
 <?php
 
-include_once '../classes/database.class.php';
+include_once '../classes/Database.php';
 
 
 $sku = $_GET['sku'];
