@@ -15,7 +15,6 @@ function submitform()
     var type = document.getElementById('product_type');
 
 
-
     var errorMsg = document.getElementById('error')
     errorMsg.innerHTML = "" //clear
 

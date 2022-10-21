@@ -47,7 +47,6 @@
                     return $newprod;
                 }
 
-
                 $database = new Database;
                 $map = ["DVD" => 'makeDVD', "Book" => 'makeBOOK', "Furniture" => 'makeFurniture'];
 
