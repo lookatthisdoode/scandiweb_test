@@ -23,7 +23,7 @@
 
             <div id="error"></div>
 
-            <form id="product_form" action="index.php" method="post">
+            <form id="product_form" action="redirect.php" method="post">
                 SKU:<br><input type="text" name="sku" id="sku"><br>
                 Name:<br> <input type="text" name="name" id="name"><br>
                 Price:<br><input type="number" name="price" id="price" onfocus="blockEDash(this.id)"><br>

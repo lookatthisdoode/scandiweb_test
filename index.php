@@ -25,7 +25,7 @@
             <button id="add" onclick="location.href = 'addproduct.php'">ADD</button>
             <button  onclick="deletethem()">MASS DELETE</button>
         </nav>
-        
+
         <div class="divider"></div>
 
         <div id="containerProduct">
@@ -52,17 +52,6 @@
 
                 $database = new Database;
                 $map = ["DVD" => 'makeDVD', "Book" => 'makeBOOK', "Furniture" => 'makeFurniture'];
-
-
-
-
-                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    if (!$database->skuExist($_POST['sku'])) {
-                        $map[$_POST['product_type']]($_POST)->toDB();
-                    }
-
-                    header( "Location: {$_SERVER['PHP_SELF']}", true, 303);
-                }
 
                 $data = $database->getData();
 
