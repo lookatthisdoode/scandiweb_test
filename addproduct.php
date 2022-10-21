@@ -4,6 +4,7 @@
         <?php header('Content-type: text/html; charset=utf-8'); ?>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" src="script.js"></script>
         <link rel="icon" href="icon.png">
         <title>Add Product</title>
     </head>
@@ -25,7 +26,7 @@
             <form id="product_form" action="index.php" method="post">
                 SKU:<br><input type="text" name="sku" id="sku"><br>
                 Name:<br> <input type="text" name="name" id="name"><br>
-                Price:<br><input type="number" name="price" id="price"><br>
+                Price:<br><input type="number" name="price" id="price" onfocus="blockEDash(this.id)"><br>
 
                 <p>Select type of product:</p>
 
@@ -39,9 +40,9 @@
                 <p></p>
 
                 <div id="bottomform"></div>
-
             </form>
         </div>
     </body>
-    <script type="text/javascript" src="script.js"></script>
+
+    <!-- <script type="text/javascript" src="numbervalidation.js"></script> -->
 </html>

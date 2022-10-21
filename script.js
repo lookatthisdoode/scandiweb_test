@@ -1,18 +1,18 @@
 
-var invalidChars = [
-    "-", "+", "e",
-]
-
-document.getElementById('price').addEventListener("keydown", function(e) {
-    if (invalidChars.includes(e.key)) {
-        e.preventDefault();
-    }
-})
-
-document.getElementById('price').addEventListener("input", function() {
-    this.value = this.value.replace(/[e\+\-]/gi, "");
-})
-
+function blockEDash (field)
+{
+    var invalidChars = [
+        "-", "+", "e",
+    ]
+    document.getElementById(field).addEventListener("keydown", function(e) {
+        if (invalidChars.includes(e.key)) {
+            e.preventDefault();
+        }
+    })
+    document.getElementById(field).addEventListener("input", function() {
+        this.value = this.value.replace(/[e\+\-]/gi, "");
+    })
+}
 
 function submitform()
 {
@@ -40,7 +40,7 @@ function submitform()
         if (name.value.length > 15) throw "Name must be shorter that 15 digits";
         if (format.test(name.value)) throw "Name must not contain any special characters";
         if (price.value == "") throw "Enter price";
-        if (price.value.length > 10) throw "Price should be shorted than 10 digits";
+        if (price.value.length > 10) throw "Price should be longer than 10 digits";
         if (!type) throw "You must choose the type of product";
         if (dvd) if (dvd.value == "") throw "Size field is required";
         if (weight) if (weight.value == "") throw "Weight field is required";
@@ -58,8 +58,6 @@ function submitform()
 function checkSKU(sku)
 {
     var checkSKU = new XMLHttpRequest();
-
-
     checkSKU.open("GET","requests/checksku.request.php?sku="+sku, false);
     checkSKU.send();
 
@@ -93,83 +91,11 @@ function deletethem()
 
 function changeform(value)
 {
-    var target = document.getElementById('bottomform');
-
-    var hiddentype = Object.assign(document.createElement("input"), {
-    name : 'product_type',
-    type : 'hidden',
-    id : 'product_type'
-    })
-
-    if (value == "DVD") {
-        target.innerHTML = ""
-        var dvdform = Object.assign(document.createElement("input"), {
-        name : 'size',
-        id : 'size',
-        type: 'number',
-        placeholder : 'mb'
-        })
-        target.appendChild(Object.assign(document.createElement("div"), {
-        innerHTML : 'Size: ',}))
-        target.appendChild(dvdform)
-        hiddentype.setAttribute('value', 'DVD')
-        target.appendChild(hiddentype)
-    } else if (value == "Book") {
-        target.innerHTML = ""
-        var bookform = Object.assign(document.createElement("input"), {
-        name : 'weight',
-        id : 'weight',
-        type : 'number',
-        placeholder : "kg",
-        })
-
-        target.appendChild(Object.assign(document.createElement("div"), {
-        innerHTML : 'Weight: ',}))
-        target.appendChild(bookform)
-        hiddentype.setAttribute('value', 'Book')
-        target.appendChild(hiddentype)
-    } else if (value == "Furniture") {
-        target.innerHTML = ""
-        var width = Object.assign(document.createElement("input"), {
-        name : 'width',
-        type : 'number',
-        id : 'width',
-        placeholder : 'cm'
-        })
-
-        var length = Object.assign(document.createElement("input"), {
-        name : 'length',
-        type : 'number',
-        id : 'length',
-        placeholder : 'cm'
-        })
-
-        var height = Object.assign(document.createElement("input"), {
-        name : 'height',
-        type : 'number',
-        id : 'height',
-        placeholder : "cm"
-        })
-
-        var furniturepart = Object.assign(document.createElement("div"), {
-        id : 'Furniture',
-        })
-
-        furniturepart.appendChild(Object.assign(document.createElement("div"), {
-        innerHTML : 'Width: ',}))
-        furniturepart.appendChild(width)
-
-        furniturepart.appendChild(Object.assign(document.createElement("div"), {
-        innerHTML : 'Length: ',}))
-        furniturepart.appendChild(length)
-
-        furniturepart.appendChild(Object.assign(document.createElement("div"), {
-        innerHTML : 'Height: ',}))
-        furniturepart.appendChild(height)
-        target.appendChild(furniturepart)
-        hiddentype.setAttribute('value', 'Furniture')
-        target.appendChild(hiddentype)
-    } else {
-        target.innerHTML = ""
+    var map = {
+      "" : "",
+      "Book" : "<div>Weight: </div><input type='number' name='weight' id='weight' placeholder='kg' onfocus='blockEDash(this.id)'><input type='hidden' name='product_type' id='product_type' value='Book'>",
+      "DVD" : "<div>Size: </div><input type='number' name='size' id='size' placeholder='mb' onfocus='blockEDash(this.id)'><input type='hidden' name='product_type' id='product_type' value='DVD'>",
+      "Furniture" : "<div>Width: </div><input type='number' name='width' id='width' placeholder='cm' onfocus='blockEDash(this.id)'><div>Length: </div><input type='number' name='length' id='length' placeholder='cm' onfocus='blockEDash(this.id)'><div>Height: </div><input type='number' name='height' id='height' placeholder='cm' onfocus='blockEDash(this.id)'><input type='hidden' name='product_type' id='product_type' value='Furniture'>"
     }
+    document.getElementById('bottomform').innerHTML = map[value];
 }
