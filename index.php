@@ -50,8 +50,16 @@
                     return $newprod;
                 }
 
+
                 $database = new Database;
-                $map = ["DVD" => 'makeDVD', "Book" => 'makeBOOK', "Furniture" => 'makeFurniture'];
+                $map = ["DVD" => 'makeDVD', "Book" => 'makeBook', "Furniture" => 'makeFurniture'];
+
+
+                if ($_POST) {
+                  $map[$_POST['product_type']]($_POST)->toDB();
+                  echo "<script> location.href='index.php'; </script>";
+                }
+
 
                 $data = $database->getData();
 

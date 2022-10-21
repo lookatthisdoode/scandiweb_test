@@ -75,4 +75,5 @@ class Database
         }
         return $isexist;  //defo returns true/false
     }
+
 }
