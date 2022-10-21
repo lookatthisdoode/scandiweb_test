@@ -92,10 +92,10 @@ function deletethem()
 function changeform(value)
 {
     var map = {
-      "" : "",
-      "Book" : "<div>Weight: </div><input type='number' name='weight' id='weight' placeholder='kg' onfocus='blockEDash(this.id)'><input type='hidden' name='product_type' id='product_type' value='Book'>",
-      "DVD" : "<div>Size: </div><input type='number' name='size' id='size' placeholder='mb' onfocus='blockEDash(this.id)'><input type='hidden' name='product_type' id='product_type' value='DVD'>",
-      "Furniture" : "<div>Width: </div><input type='number' name='width' id='width' placeholder='cm' onfocus='blockEDash(this.id)'><div>Length: </div><input type='number' name='length' id='length' placeholder='cm' onfocus='blockEDash(this.id)'><div>Height: </div><input type='number' name='height' id='height' placeholder='cm' onfocus='blockEDash(this.id)'><input type='hidden' name='product_type' id='product_type' value='Furniture'>"
+        "" : "",
+        "Book" : "<div>Weight: </div><input type='number' name='weight' id='weight' placeholder='kg' onfocus='blockEDash(this.id)'><input type='hidden' name='product_type' id='product_type' value='Book'>",
+        "DVD" : "<div>Size: </div><input type='number' name='size' id='size' placeholder='mb' onfocus='blockEDash(this.id)'><input type='hidden' name='product_type' id='product_type' value='DVD'>",
+        "Furniture" : "<div>Width: </div><input type='number' name='width' id='width' placeholder='cm' onfocus='blockEDash(this.id)'><div>Length: </div><input type='number' name='length' id='length' placeholder='cm' onfocus='blockEDash(this.id)'><div>Height: </div><input type='number' name='height' id='height' placeholder='cm' onfocus='blockEDash(this.id)'><input type='hidden' name='product_type' id='product_type' value='Furniture'>"
     }
     document.getElementById('bottomform').innerHTML = map[value];
 }

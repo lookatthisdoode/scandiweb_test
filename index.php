@@ -30,7 +30,9 @@
 
         <div id="containerProduct">
             <?php
-                session_start();
+                $database = new Database;
+                $data = $database->getData();
+                $map = ["DVD" => 'makeDVD', "Book" => 'makeBook', "Furniture" => 'makeFurniture'];
 
                 function makeDVD(array $x)
                 {
@@ -50,19 +52,13 @@
                     return $newprod;
                 }
 
-
-                $database = new Database;
-                $map = ["DVD" => 'makeDVD', "Book" => 'makeBook', "Furniture" => 'makeFurniture'];
-
-
+                //to database
                 if ($_POST) {
-                  $map[$_POST['product_type']]($_POST)->toDB();
-                  echo "<script> location.href='index.php'; </script>";
+                    $map[$_POST['product_type']]($_POST)->toDB();
+                    echo "<script> location.href='index.php'; </script>";
                 }
-
-
-                $data = $database->getData();
-
+                
+                //render
                 while ($row = mysqli_fetch_assoc($data)) {
                     $render = $map[$row['product_type']]($row);
 
